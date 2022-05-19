@@ -1,0 +1,15 @@
+- name: Certbot automation for sub-domains   
+  gather_facts: false
+  hosts: (ip goes here)
+  become: true
+  connection: local  #to execute the tasks locally on the same host (i.e., the controller) where the playbook is run. But if you would want it on differnt host(as in ip no need for this)
+
+  vars:
+    sub_domain: 
+  tasks: 
+    - name: Register domain 
+      shell: certbot --nginx -d {{ sub_domain }} --agree-tos --noninteractive --redirect  # this command makes it simple to implement your ssl on your sub domain created with ease. 
+
+
+
+

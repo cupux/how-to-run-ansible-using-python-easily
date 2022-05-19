@@ -1,0 +1,16 @@
+- name: Certbot automation for sub-domains   #this name can be changed. this is the name of your whole task to be performed
+  gather_facts: false
+  hosts: {put your ip here}      #percify the ip address of the server here. or you can create am example.yml to put all your hosts there. any goes :) that is done in the next folder
+  become: true
+  connection: local
+  vars:   # i am now initializing the values here
+    name:      # the reason why here is empty is because, i will be taking the value from python file
+  tasks:    # use this to start creating your task
+    - name: Register domain    #This is the name of this particular task task 
+      ansible.builtin.debug:   # this whole thng is to print out the message "Provisioning based on YOUR_KEY which is: {{ sub_domain }} " and {{ sub_domain}} being the variable called
+        msg:
+        - "my name is: {{ name }}"
+
+
+
+
